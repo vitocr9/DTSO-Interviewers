@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DEV_InterviewersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Competency">
+          <Key>
+            <PropertyRef Name="IdCompetency" />
+          </Key>
+          <Property Name="IdCompetency" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Stakeholder" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Interviewer">
+          <Key>
+            <PropertyRef Name="IdInterviewer" />
+          </Key>
+          <Property Name="IdInterviewer" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Seniority" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Availability" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsCertified" Type="bit" Nullable="false" />
+          <Property Name="IdCompetency" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="IdPosition" />
+          </Key>
+          <Property Name="IdPosition" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Project" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdCompentecy" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="IdSkill" />
+          </Key>
+          <Property Name="IdSkill" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Position_Competency">
+          <End Role="Competency" Type="Self.Competency" Multiplicity="1" />
+          <End Role="Position" Type="Self.Position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competency">
+              <PropertyRef Name="IdCompetency" />
+            </Principal>
+            <Dependent Role="Position">
+              <PropertyRef Name="IdCompentecy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DEV_InterviewersModelStoreContainer">
+          <EntitySet Name="Competency" EntityType="Self.Competency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Interviewer" EntityType="Self.Interviewer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Position_Competency" Association="Self.FK_Position_Competency">
+            <End Role="Competency" EntitySet="Competency" />
+            <End Role="Position" EntitySet="Position" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DEV_InterviewersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Competency">
+          <Key>
+            <PropertyRef Name="IdCompetency" />
+          </Key>
+          <Property Name="IdCompetency" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Stakeholder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Positions" Relationship="Self.FK_Position_Competency" FromRole="Competency" ToRole="Position" />
+        </EntityType>
+        <EntityType Name="Interviewer">
+          <Key>
+            <PropertyRef Name="IdInterviewer" />
+          </Key>
+          <Property Name="IdInterviewer" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Seniority" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Availability" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsCertified" Type="Boolean" Nullable="false" />
+          <Property Name="IdCompetency" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="IdPosition" />
+          </Key>
+          <Property Name="IdPosition" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Project" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdCompentecy" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Competency" Relationship="Self.FK_Position_Competency" FromRole="Position" ToRole="Competency" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="IdSkill" />
+          </Key>
+          <Property Name="IdSkill" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Position_Competency">
+          <End Role="Competency" Type="Self.Competency" Multiplicity="1" />
+          <End Role="Position" Type="Self.Position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competency">
+              <PropertyRef Name="IdCompetency" />
+            </Principal>
+            <Dependent Role="Position">
+              <PropertyRef Name="IdCompentecy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DEV_InterviewersEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Competencies" EntityType="Self.Competency" />
+          <EntitySet Name="Interviewers" EntityType="Self.Interviewer" />
+          <EntitySet Name="Positions" EntityType="Self.Position" />
+          <EntitySet Name="Skills" EntityType="Self.Skill" />
+          <AssociationSet Name="FK_Position_Competency" Association="Self.FK_Position_Competency">
+            <End Role="Competency" EntitySet="Competencies" />
+            <End Role="Position" EntitySet="Positions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DEV_InterviewersModelStoreContainer" CdmEntityContainer="DEV_InterviewersEntities">
+          <EntitySetMapping Name="Competencies">
+            <EntityTypeMapping TypeName="DEV_InterviewersModel.Competency">
+              <MappingFragment StoreEntitySet="Competency">
+                <ScalarProperty Name="IdCompetency" ColumnName="IdCompetency" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Stakeholder" ColumnName="Stakeholder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Interviewers">
+            <EntityTypeMapping TypeName="DEV_InterviewersModel.Interviewer">
+              <MappingFragment StoreEntitySet="Interviewer">
+                <ScalarProperty Name="IdInterviewer" ColumnName="IdInterviewer" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Seniority" ColumnName="Seniority" />
+                <ScalarProperty Name="Availability" ColumnName="Availability" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsCertified" ColumnName="IsCertified" />
+                <ScalarProperty Name="IdCompetency" ColumnName="IdCompetency" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="DEV_InterviewersModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="IdPosition" ColumnName="IdPosition" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="IdCompentecy" ColumnName="IdCompentecy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skills">
+            <EntityTypeMapping TypeName="DEV_InterviewersModel.Skill">
+              <MappingFragment StoreEntitySet="Skill">
+                <ScalarProperty Name="IdSkill" ColumnName="IdSkill" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
