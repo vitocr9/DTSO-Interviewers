@@ -18,6 +18,9 @@ namespace DTSOInterviewers.Models
         public string Description { get; set; }
         public string Project { get; set; }
         public byte IdCompentecy { get; set; }
+        public Nullable<short> IdSkillPrimary { get; set; }
+        public Nullable<short> IdSkillSecondary { get; set; }
+        public Nullable<short> IdSkillOptional { get; set; }
     
         public virtual Competency Competency { get; set; }
     }

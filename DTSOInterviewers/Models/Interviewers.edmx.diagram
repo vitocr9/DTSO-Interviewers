@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="982b2913a16e408db7c6797015027e95" Name="Diagram1">
-        <EntityTypeShape EntityType="DEV_InterviewersModel.Competency" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DEV_InterviewersModel.Interviewer" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DEV_InterviewersModel.Position" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DEV_InterviewersModel.Skill" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+      <Diagram DiagramId="5f3694a5e6094755b787abec714c351d" Name="Diagram1">
+        <EntityTypeShape EntityType="DEV_InterviewersModel.Competency" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEV_InterviewersModel.Interviewer" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEV_InterviewersModel.Position" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEV_InterviewersModel.Skill" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="DEV_InterviewersModel.FK_Position_Competency" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
