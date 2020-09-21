@@ -1,0 +1,82 @@
+﻿@model DTSOInterviewers.Models.Interviewer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Interviewer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Seniority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seniority)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Availability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Availability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsCertified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsCertified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCompetency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCompetency)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdInterviewer }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

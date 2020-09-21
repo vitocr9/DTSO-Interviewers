@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DTSOInterviewers.Models.Position>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Project)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdSkillPrimary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdSkillSecondary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdSkillOptional)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Competency.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdSkillPrimary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdSkillSecondary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdSkillOptional)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Competency.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdPosition }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdPosition }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdPosition })
+        </td>
+    </tr>
+}
+
+</table>

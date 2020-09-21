@@ -175,7 +175,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CompetenciesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InterviewersController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PositionsController.cs" />
     <Compile Include="Controllers\SkillsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -300,6 +302,16 @@
     <Content Include="Views\Skills\Details.cshtml" />
     <Content Include="Views\Skills\Edit.cshtml" />
     <Content Include="Views\Skills\Index.cshtml" />
+    <Content Include="Views\Positions\Create.cshtml" />
+    <Content Include="Views\Positions\Delete.cshtml" />
+    <Content Include="Views\Positions\Details.cshtml" />
+    <Content Include="Views\Positions\Edit.cshtml" />
+    <Content Include="Views\Positions\Index.cshtml" />
+    <Content Include="Views\Interviewers\Create.cshtml" />
+    <Content Include="Views\Interviewers\Delete.cshtml" />
+    <Content Include="Views\Interviewers\Details.cshtml" />
+    <Content Include="Views\Interviewers\Edit.cshtml" />
+    <Content Include="Views\Interviewers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
