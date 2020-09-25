@@ -38,6 +38,8 @@ namespace DTSOInterviewers.Controllers
         // GET: Interviewers/Create
         public ActionResult Create()
         {
+            //ViewBag.IdSkillSecondary = new SelectList(db.Skills, "IdSkill", "Description");
+            ViewBag.Competency = new SelectList(db.Competencies, "IdCompetency", "Description");
             return View();
         }
 

@@ -42,7 +42,7 @@ namespace DTSOInterviewers.Controllers
         {
             ViewBag.IdCompentecy = new SelectList(db.Competencies, "IdCompetency", "Description");
             ViewBag.IdSkillPrimary = new SelectList(db.Skills, "IdSkill", "Description");
-            //ViewBag.IdSkillSecondary = new SelectList(db.Skills, "IdSkill", "Description");
+            ViewBag.IdSkillSecondary = new SelectList(db.Skills, "IdSkill", "Description");
             //ViewBag.IdSkillOptional = new SelectList(db.Skills, "IdSkill", "Description");
             //ViewBag.IdSkillOptional = new SelectList(db.Interviewers, "IdInterviewer", "IdSkill");
             return View();

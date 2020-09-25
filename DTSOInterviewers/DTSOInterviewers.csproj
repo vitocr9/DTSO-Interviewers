@@ -236,10 +236,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Dockerfile" />
-    <None Include=".dockerignore">
-      <DependentUpon>Dockerfile</DependentUpon>
-    </None>
     <EntityDeploy Include="Models\Interviewers.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Interviewers.Designer.cs</LastGenOutput>
@@ -247,6 +243,10 @@
     <Content Include="Models\Interviewers.edmx.diagram">
       <DependentUpon>Interviewers.edmx</DependentUpon>
     </Content>
+    <None Include="Dockerfile" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
