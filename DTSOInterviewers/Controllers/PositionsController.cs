@@ -17,6 +17,7 @@ namespace DTSOInterviewers.Controllers
         // GET: Positions
         public ActionResult Index()
         {
+            
             var positions = db.Positions.Include(p => p.Competency);
             return View(positions.ToList());
         }
@@ -32,8 +33,8 @@ namespace DTSOInterviewers.Controllers
             if (position == null)
             {
                 return HttpNotFound();
-            }
-            ViewBag.IdCompentecy = new SelectList(db.Skills, "IdSkill", "Description");
+            }           
+            
             return View(position);
         }
 
@@ -42,8 +43,8 @@ namespace DTSOInterviewers.Controllers
         {
             ViewBag.IdCompentecy = new SelectList(db.Competencies, "IdCompetency", "Description");
             ViewBag.IdSkillPrimary = new SelectList(db.Skills, "IdSkill", "Description");
-            //ViewBag.IdSkillSecondary = new SelectList(db.Skills, "IdSkill", "Description");
-            //ViewBag.IdSkillOptional = new SelectList(db.Skills, "IdSkill", "Description");
+            ViewBag.IdSkillSecondary = new SelectList(db.Skills, "IdSkill", "Description");
+            ViewBag.IdSkillOptional = new SelectList(db.Skills, "IdSkill", "Description");
             //ViewBag.IdSkillOptional = new SelectList(db.Interviewers, "IdInterviewer", "IdSkill");
             return View();
         }
@@ -79,6 +80,9 @@ namespace DTSOInterviewers.Controllers
                 return HttpNotFound();
             }
             ViewBag.IdCompentecy = new SelectList(db.Competencies, "IdCompetency", "Description", position.IdCompentecy);
+            ViewBag.IdSkillPrimary = new SelectList(db.Skills, "IdSkill", "Description", position.IdSkillPrimary);
+            ViewBag.IdSkillSecondary = new SelectList(db.Skills, "IdSkill", "Description", position.IdSkillSecondary);
+            ViewBag.IdSkillOptional = new SelectList(db.Skills, "IdSkill", "Description", position.IdSkillOptional);
             return View(position);
         }
 
@@ -95,7 +99,7 @@ namespace DTSOInterviewers.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdCompentecy = new SelectList(db.Competencies, "IdCompetency", "Description", position.IdCompentecy);
+            ViewBag.IdCompentecy = new SelectList(db.Competencies, "IdCompetency", "Description", position.IdCompentecy);           
             return View(position);
         }
 

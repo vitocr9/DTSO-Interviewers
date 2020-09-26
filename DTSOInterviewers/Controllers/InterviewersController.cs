@@ -38,6 +38,7 @@ namespace DTSOInterviewers.Controllers
         // GET: Interviewers/Create
         public ActionResult Create()
         {
+            ViewBag.IdCompetency = new SelectList(db.Competencies, "IdCompetency", "Description");
             return View();
         }
 
@@ -54,7 +55,7 @@ namespace DTSOInterviewers.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.IdCompetency = new SelectList(db.Competencies, "IdCompetency", "Description");
             return View(interviewer);
         }
 
@@ -70,6 +71,7 @@ namespace DTSOInterviewers.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.IdCompetency = new SelectList(db.Competencies, "IdCompetency", "Description");
             return View(interviewer);
         }
 

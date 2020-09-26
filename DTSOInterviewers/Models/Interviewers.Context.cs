@@ -29,5 +29,6 @@ namespace DTSOInterviewers.Models
         public virtual DbSet<Interviewer> Interviewers { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<Skill> Skills { get; set; }
+        public virtual DbSet<VIEW_INTERVIEWERS_SKILLS> VIEW_INTERVIEWERS_SKILLS { get; set; }
     }
 }

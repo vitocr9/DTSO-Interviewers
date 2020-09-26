@@ -23,5 +23,8 @@ namespace DTSOInterviewers.Models
         public Nullable<short> IdSkillOptional { get; set; }
     
         public virtual Competency Competency { get; set; }
+        public virtual Skill Skill { get; set; }
+        public virtual Skill Skill1 { get; set; }
+        public virtual Skill Skill2 { get; set; }
     }
 }

@@ -51,15 +51,15 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IdSkillSecondary, "Secondary Skill", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("IdSkillPrimary", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("IdSkillSecondary", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdSkillSecondary, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IdSkillOptional, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.IdSkillOptional,"Optional Skill", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IdSkillOptional, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("IdSkillOptional", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdSkillOptional, "", new { @class = "text-danger" })
             </div>
         </div>
