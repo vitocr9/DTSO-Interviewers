@@ -31,7 +31,7 @@
           <Key>
             <PropertyRef Name="IdPosition" />
           </Key>
-          <Property Name="IdPosition" Type="int" Nullable="false" />
+          <Property Name="IdPosition" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Project" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IdCompentecy" Type="tinyint" Nullable="false" />
@@ -45,20 +45,6 @@
           </Key>
           <Property Name="IdSkill" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DEV_Interviewers.dbo.VIEW_INTERVIEWERS_SKILLS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="VIEW_INTERVIEWERS_SKILLS">
-          <Key>
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="LastName" />
-            <PropertyRef Name="Email" />
-            <PropertyRef Name="Skill" />
-          </Key>
-          <Property Name="Name" Type="varchar" MaxLength="25" Nullable="false" />
-          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Skill" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_Position_Competency">
           <End Role="Competency" Type="Self.Competency" Multiplicity="1" />
@@ -113,14 +99,6 @@ warning 6002: The table/view 'DEV_Interviewers.dbo.VIEW_INTERVIEWERS_SKILLS' doe
           <EntitySet Name="Interviewer" EntityType="Self.Interviewer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="VIEW_INTERVIEWERS_SKILLS" EntityType="Self.VIEW_INTERVIEWERS_SKILLS" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [VIEW_INTERVIEWERS_SKILLS].[Name] AS [Name], 
-    [VIEW_INTERVIEWERS_SKILLS].[LastName] AS [LastName], 
-    [VIEW_INTERVIEWERS_SKILLS].[Email] AS [Email], 
-    [VIEW_INTERVIEWERS_SKILLS].[Skill] AS [Skill]
-    FROM [dbo].[VIEW_INTERVIEWERS_SKILLS] AS [VIEW_INTERVIEWERS_SKILLS]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Position_Competency" Association="Self.FK_Position_Competency">
             <End Role="Competency" EntitySet="Competency" />
             <End Role="Position" EntitySet="Position" />
@@ -212,7 +190,6 @@ warning 6002: The table/view 'DEV_Interviewers.dbo.VIEW_INTERVIEWERS_SKILLS' doe
             <End Role="Competency" EntitySet="Competencies" />
             <End Role="Position" EntitySet="Positions" />
           </AssociationSet>
-          <EntitySet Name="VIEW_INTERVIEWERS_SKILLS" EntityType="DEV_InterviewersModel.VIEW_INTERVIEWERS_SKILLS" />
           <AssociationSet Name="FK_Position_SkillOptional" Association="DEV_InterviewersModel.FK_Position_SkillOptional">
             <End Role="Skill" EntitySet="Skills" />
             <End Role="Position" EntitySet="Positions" />
@@ -226,18 +203,6 @@ warning 6002: The table/view 'DEV_Interviewers.dbo.VIEW_INTERVIEWERS_SKILLS' doe
             <End Role="Position" EntitySet="Positions" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="VIEW_INTERVIEWERS_SKILLS">
-          <Key>
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="LastName" />
-            <PropertyRef Name="Email" />
-            <PropertyRef Name="Skill" />
-          </Key>
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Skill" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
         <Association Name="FK_Position_SkillOptional">
           <End Type="DEV_InterviewersModel.Skill" Role="Skill" Multiplicity="0..1" />
           <End Type="DEV_InterviewersModel.Position" Role="Position" Multiplicity="*" />
@@ -322,16 +287,6 @@ warning 6002: The table/view 'DEV_Interviewers.dbo.VIEW_INTERVIEWERS_SKILLS' doe
               <MappingFragment StoreEntitySet="Skill">
                 <ScalarProperty Name="IdSkill" ColumnName="IdSkill" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VIEW_INTERVIEWERS_SKILLS">
-            <EntityTypeMapping TypeName="DEV_InterviewersModel.VIEW_INTERVIEWERS_SKILLS">
-              <MappingFragment StoreEntitySet="VIEW_INTERVIEWERS_SKILLS">
-                <ScalarProperty Name="Skill" ColumnName="Skill" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
