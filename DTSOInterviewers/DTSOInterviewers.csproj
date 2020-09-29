@@ -236,10 +236,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Dockerfile" />
-    <None Include=".dockerignore">
-      <DependentUpon>Dockerfile</DependentUpon>
-    </None>
     <EntityDeploy Include="Models\Interviewers.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Interviewers.Designer.cs</LastGenOutput>
@@ -247,6 +243,10 @@
     <Content Include="Models\Interviewers.edmx.diagram">
       <DependentUpon>Interviewers.edmx</DependentUpon>
     </Content>
+    <None Include="Dockerfile" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -258,6 +258,14 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="SQLScripts\1_Competency.sql" />
+    <Content Include="SQLScripts\2_Skill.sql" />
+    <Content Include="SQLScripts\3_Interviewer.sql" />
+    <Content Include="SQLScripts\4_Position.sql" />
+    <Content Include="SQLScripts\5_Interviewers_Skills.sql" />
+    <Content Include="SQLScripts\6_Interviewers_Positions.sql" />
+    <Content Include="SQLScripts\7_View_Interviewers_Skills.sql" />
+    <Content Include="SQLScripts\DropTables.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -312,6 +320,8 @@
     <Content Include="Views\Interviewers\Details.cshtml" />
     <Content Include="Views\Interviewers\Edit.cshtml" />
     <Content Include="Views\Interviewers\Index.cshtml" />
+    <Content Include="SQLScripts\DROP_Interviewers.ps1" />
+    <Content Include="SQLScripts\INSERTS_Interviewers.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
